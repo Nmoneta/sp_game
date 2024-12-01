@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctirycwfoabmm"]
+
+[ext_resource type="Script" path="res://scenes/girl_3.gd" id="1_18v61"]
+[ext_resource type="Texture2D" uid="uid://buy8ts3ltto6t" path="res://graphic/girl2.png" id="1_csyor"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ab5i0"]
+radius = 50.0
+height = 424.0
+
+[node name="Girl3" type="Node2D"]
+script = ExtResource("1_18v61")
+
+[node name="Girl" type="Sprite2D" parent="."]
+position = Vector2(-1.90735e-06, 7.62939e-06)
+scale = Vector2(0.521861, 0.521861)
+texture = ExtResource("1_csyor")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_ab5i0")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

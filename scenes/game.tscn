@@ -1,0 +1,60 @@
+[gd_scene load_steps=12 format=3 uid="uid://1ksdrvtpnpbe"]
+
+[ext_resource type="Texture2D" uid="uid://dec6v8r38cvgx" path="res://graphic/fon-transformed.png" id="1_h8u0d"]
+[ext_resource type="Script" path="res://scenes/game.gd" id="1_hmycs"]
+[ext_resource type="PackedScene" uid="uid://d264s41esikp0" path="res://scenes/girl1.tscn" id="2_ilu7j"]
+[ext_resource type="PackedScene" uid="uid://ba6vogsq7lnjv" path="res://scenes/girl2.tscn" id="3_tqj1d"]
+[ext_resource type="PackedScene" uid="uid://ctirycwfoabmm" path="res://scenes/girl3.tscn" id="4_ah2t8"]
+[ext_resource type="PackedScene" uid="uid://cuefxsu7x3e27" path="res://scenes/man1.tscn" id="5_sejr5"]
+[ext_resource type="PackedScene" uid="uid://doh0do0r5u2hi" path="res://scenes/man2.tscn" id="6_yfum1"]
+[ext_resource type="PackedScene" uid="uid://ck15at3dwdlwo" path="res://scenes/man3.tscn" id="7_tj7ek"]
+[ext_resource type="PackedScene" uid="uid://dtwsqcnjf6hmw" path="res://scenes/plot.tscn" id="8_gqg87"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0wo1"]
+size = Vector2(961, 119)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vu7wm"]
+size = Vector2(1098.25, 184.532)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_hmycs")
+
+[node name="Fon-transformed" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_h8u0d")
+
+[node name="RightIsland" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightIsland"]
+position = Vector2(1418, 609)
+shape = SubResource("RectangleShape2D_e0wo1")
+
+[node name="LeftIsland" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftIsland"]
+position = Vector2(1138.16, 1050.92)
+rotation = 0.191986
+shape = SubResource("RectangleShape2D_vu7wm")
+
+[node name="Plot" parent="." instance=ExtResource("8_gqg87")]
+position = Vector2(1123, 871)
+
+[node name="Girl1" parent="." instance=ExtResource("2_ilu7j")]
+position = Vector2(191, 834)
+
+[node name="Girl2" parent="." instance=ExtResource("3_tqj1d")]
+position = Vector2(484, 841)
+
+[node name="Girl3" parent="." instance=ExtResource("4_ah2t8")]
+position = Vector2(782, 846)
+
+[node name="Man1" parent="." instance=ExtResource("5_sejr5")]
+position = Vector2(75, 832)
+
+[node name="Man2" parent="." instance=ExtResource("6_yfum1")]
+position = Vector2(344, 835)
+
+[node name="Man3" parent="." instance=ExtResource("7_tj7ek")]
+position = Vector2(624, 833)

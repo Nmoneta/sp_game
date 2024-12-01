@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://ck15at3dwdlwo"]
+
+[ext_resource type="Script" path="res://scenes/man_3.gd" id="1_2s43l"]
+[ext_resource type="Texture2D" uid="uid://dd6w4etia1a7e" path="res://graphic/man2.png" id="1_nx2sq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hdav1"]
+radius = 37.0
+height = 406.0
+
+[node name="Man3" type="Node2D"]
+script = ExtResource("1_2s43l")
+
+[node name="Man" type="Sprite2D" parent="."]
+position = Vector2(0, -4.76837e-07)
+scale = Vector2(0.497525, 0.497525)
+texture = ExtResource("1_nx2sq")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_hdav1")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
