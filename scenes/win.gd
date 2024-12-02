@@ -1,6 +1,5 @@
 extends Control
 
-
 @onready var label = $Label2  # Указываем путь к Label
 
 func _ready():

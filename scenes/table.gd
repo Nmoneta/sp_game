@@ -1,5 +1,7 @@
 extends Control
 
+signal restart
+
 @onready var item_list = $ItemList  # Укажите путь к вашему ItemList
 
 func _ready():
@@ -19,9 +21,9 @@ func populate_item_list():
 		var entry = "Имя: %s | Счёт: %d | Время: %.2f сек" % [player["name"], player["motion"], player["time"]]
 		item_list.add_item(entry)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+func _on_menu_button_pressed() -> void:
+	emit_signal("restart")	
+	pass
+	
 func _process(delta: float) -> void:
 	pass
-
-
-func _on_menu_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/start_game.tscn")
