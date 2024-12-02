@@ -1,7 +1,7 @@
 extends Node
 
 var player_names: Array = []
-var move = 0
+var motion = 0
 var end_time: int
 var start_time: int
 var elapsed_time: int
@@ -16,3 +16,6 @@ func game_over():
 
 func start_game():
 	start_time = Time.get_ticks_msec()
+
+func move():
+	motion+=1

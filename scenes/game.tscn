@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://1ksdrvtpnpbe"]
+[gd_scene load_steps=13 format=3 uid="uid://1ksdrvtpnpbe"]
 
 [ext_resource type="Texture2D" uid="uid://dec6v8r38cvgx" path="res://graphic/fon-transformed.png" id="1_h8u0d"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_hmycs"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://doh0do0r5u2hi" path="res://scenes/man2.tscn" id="6_yfum1"]
 [ext_resource type="PackedScene" uid="uid://ck15at3dwdlwo" path="res://scenes/man3.tscn" id="7_tj7ek"]
 [ext_resource type="PackedScene" uid="uid://dtwsqcnjf6hmw" path="res://scenes/plot.tscn" id="8_gqg87"]
+[ext_resource type="PackedScene" uid="uid://dvkphlkhknlhx" path="res://scenes/pause_menu.tscn" id="10_jmies"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e0wo1"]
 size = Vector2(961, 119)
@@ -58,3 +59,10 @@ position = Vector2(344, 835)
 
 [node name="Man3" parent="." instance=ExtResource("7_tj7ek")]
 position = Vector2(624, 833)
+
+[node name="PauseMenu" parent="." instance=ExtResource("10_jmies")]
+offset_left = 712.0
+offset_top = 336.0
+offset_right = 712.0
+offset_bottom = 336.0
+scale = Vector2(4, 4)
