@@ -68,6 +68,7 @@ func check_rules():
 		else:
 			right_side.append(character)
 	var i = 0
+	print(count_in_island)
 	# Проверьте, что девочки не остались с чужими отцами
 	for girl in [$Girl1, $Girl2, $Girl3]:
 		if girl.boat_pos == 2:
@@ -78,6 +79,8 @@ func check_rules():
 				Global.game_over()
 				lose()
 			if !girl.is_left and characters[i].is_left and (!characters[arr[0]].is_left or !characters[arr[1]].is_left):
+				
+				print(girl)
 				print("Нарушение правил на правом берегу!")
 				Global.game_over()
 				lose()
