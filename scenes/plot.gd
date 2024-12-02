@@ -4,6 +4,7 @@ extends Node2D
 var passengers = [] # Список персонажей в лодке
 var is_on_left_shore = true # Лодка находится на левом берегу
 signal clicked 
+signal check
 # Ссылки на берега
 var left_shore_position = Vector2(1123,871)
 var right_shore_position = Vector2(1504,685)
@@ -55,12 +56,17 @@ func board_passenger(person):
 		pos1 = Vector2(1501, 478)
 		pos2 = Vector2(1645, 430)
 	
-	if len(passengers) == 0:
+	if is_free_pos1:
 		person.position = pos1 # Смещаем персонажей в лодке
+		person.boat_pos = 0
+		is_free_pos1 = false
 	else: 
-		person.position = pos2 # Смещаем персонажей в лодке
+		person.position = pos2 # Смещаем персонажей в лодкe
+		person.boat_pos = 1
+	
 	person.scale = Vector2(1, 1)
 	passengers.append(person)
+	emit_signal("check")
 	
 
 # Высадка из лодки
@@ -74,7 +80,11 @@ func disembark_passenger(person):
 		else: 
 			person.position = person.right_pos
 			person.scale = Vector2(0.5, 0.5)
-
+		if(person.boat_pos == 0):
+			is_free_pos1 = true
+		person.boat_pos = 2
+		emit_signal("check")
+		
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
