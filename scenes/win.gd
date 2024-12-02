@@ -1,11 +1,8 @@
 extends Control
 
+signal restart
 
 @onready var label = $Label2  # Указываем путь к Label
-
-func _ready():
-	# Инициализируем текст Label
-	update_label()
 
 # Максимальное количество игроков
 var max_players = 10
@@ -31,6 +28,7 @@ func insert_player_sorted(new_player: Dictionary):
 
 
 func update_label():
+	print(Global.motion)
 	label.text =  "Перестановок: %d\nВремя: %.2f сек" % [Global.motion, Global.elapsed_time]
 	insert_player_sorted({"name":Global.player_name, "motion":Global.motion, "time":Global.elapsed_time})
 	# Обновляем текст в Label с текущим значением переменной
@@ -46,4 +44,5 @@ func _process(delta: float) -> void:
 
 
 func _on_menu_button_pressed() -> void:
+	emit_signal("restart")
 	get_tree().change_scene_to_file("res://scenes/table.tscn")

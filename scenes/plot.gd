@@ -34,12 +34,12 @@ func move_boat():
 	var target_position = right_shore_position if not is_on_left_shore else left_shore_position
 	var tween = get_tree().create_tween()
 	var tween_pass1 = get_tree().create_tween()
-	tween.tween_property(self, "position", target_position, 2.0)
-	tween_pass1.tween_property(passengers[0], "position", passengers[0].position + Vector2(381, -186)*vect, 2.0)
+	tween.tween_property(self, "position", target_position, 1.0)
+	tween_pass1.tween_property(passengers[0], "position", passengers[0].position + Vector2(381, -186)*vect, 1.0)
 	passengers[0].is_left = is_on_left_shore
 	if len(passengers) == 2:
 		var tween_pass2 = get_tree().create_tween()
-		tween_pass2.tween_property(passengers[1], "position", passengers[1].position + Vector2(381, -186)*vect, 2.0)
+		tween_pass2.tween_property(passengers[1], "position", passengers[1].position + Vector2(381, -186)*vect, 1.0)
 		passengers[1].is_left = is_on_left_shore
 		
 

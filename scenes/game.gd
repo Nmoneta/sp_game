@@ -98,6 +98,7 @@ func _on_texture_button_pressed() -> void:
 	
 func win():	
 		$Win.show()
+		$Win.update_label()
 		$Win2.play()
 		Engine.time_scale = 0
 
