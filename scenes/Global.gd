@@ -1,6 +1,52 @@
 extends Node
 
-var player_names: Array = []
+var player_names: Array = [
+	#{
+		#"name": "nasd",
+		#"motion": 6,
+		#"time": 20.5
+	#},
+	#{
+		#"name": "nasd",
+		#"motion": 6,
+		#"time": 20.5
+	#},
+	#{
+		#"name": "nasd",
+		#"motion": 6,
+		#"time": 20.5
+	#},
+	#{
+		#"name":"nasd",
+		#"motion": 6,
+		#"time": 20.5
+	#},{
+		#"name": "nasd",
+		#"motion": 6,
+		#"time": 20.5
+	#},{
+		#"name": "nasd",
+		#"motion": 6,
+		#"time": 20.5
+	#},{
+		#"name": "nasd",
+		#"motion": 6,
+		#"time": 20.5
+	#},{
+		#"name": "nasd",
+		#"motion": 8,
+		#"time": 20.5
+	#},{
+		#"name": "nasd",
+		#"motion": 6,
+		#"time": 20.5
+	#},{
+		#"name": "nasd",
+		#"motion": 7,
+		#"time": 20.5
+	#}
+	]
+var player_name: String
 var motion = 0
 var end_time: int
 var start_time: int

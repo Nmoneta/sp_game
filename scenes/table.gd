@@ -3,6 +3,11 @@ extends Control
 @onready var item_list = $ItemList  # Укажите путь к вашему ItemList
 
 func _ready():
+	# Создаем новый динамический шрифт
+	var f = load("res://graphic/FEMussyPussy-Regular.otf")
+	$ItemList.add_theme_font_override("font", f)
+	$ItemList.add_theme_font_size_override("font_size", 40)
+
 	populate_item_list()
 
 func populate_item_list():
@@ -10,8 +15,13 @@ func populate_item_list():
 	item_list.clear()
 
 	# Добавляем имена игроков из Global.player_names
-	for player_name in Global.player_names:
-		item_list.add_item(player_name)
+	for player in Global.player_names:
+		var entry = "Имя: %s | Счёт: %d | Время: %.2f сек" % [player["name"], player["motion"], player["time"]]
+		item_list.add_item(entry)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_menu_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/start_game.tscn")

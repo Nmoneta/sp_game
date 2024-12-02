@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://csbkka1gdnyrs"]
+[gd_scene load_steps=7 format=3 uid="uid://csbkka1gdnyrs"]
 
 [ext_resource type="Script" path="res://scenes/win.gd" id="1_2vric"]
 [ext_resource type="Texture2D" uid="uid://ceyadbvgfxrpe" path="res://graphic/start_game_fon.png" id="2_b2tvx"]
@@ -12,6 +12,10 @@ font_color = Color(0.952941, 0, 0.235294, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_h5qov"]
 font = ExtResource("3_olxk2")
 font_size = 50
+font_color = Color(0.72549, 0.72549, 0.72549, 0.952941)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rr3qv"]
+font_size = 70
 
 [node name="Win" type="Control"]
 layout_mode = 3
@@ -29,17 +33,44 @@ texture = ExtResource("2_b2tvx")
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 472.0
-offset_top = 148.0
+offset_top = 137.0
 offset_right = 1417.0
-offset_bottom = 355.0
+offset_bottom = 344.0
 text = "победа!"
 label_settings = SubResource("LabelSettings_5876j")
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 0
-offset_left = 647.0
-offset_top = 533.0
-offset_right = 1301.0
-offset_bottom = 708.0
+offset_left = 613.0
+offset_top = 397.0
+offset_right = 1267.0
+offset_bottom = 572.0
 label_settings = SubResource("LabelSettings_h5qov")
+
+[node name="MenuButton" type="MenuButton" parent="."]
+offset_left = 649.0
+offset_top = 742.0
+offset_right = 1247.0
+offset_bottom = 898.0
+item_count = 1
+
+[node name="Label1" type="Label" parent="MenuButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.092
+anchor_top = 0.532
+anchor_right = 0.092
+anchor_bottom = 0.532
+offset_left = -96.016
+offset_top = -54.992
+offset_right = 577.984
+offset_bottom = 39.008
+theme_override_colors/font_color = Color(0.764706, 0.443137, 0.243137, 1)
+theme_override_fonts/font = ExtResource("3_olxk2")
+theme_override_font_sizes/font_size = 0
+text = "открыть рейтинг"
+label_settings = SubResource("LabelSettings_rr3qv")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
