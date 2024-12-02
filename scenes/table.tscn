@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://c72qrohab33i6"]
+
+[ext_resource type="Script" path="res://scenes/table.gd" id="1_2kmuo"]
+[ext_resource type="Texture2D" uid="uid://ceyadbvgfxrpe" path="res://graphic/start_game_fon.png" id="2_0md2k"]
+[ext_resource type="FontFile" uid="uid://baxo7c5b2tsem" path="res://graphic/FEMussyPussy-Regular.otf" id="3_8mad2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q482l"]
+font = ExtResource("3_8mad2")
+font_size = 60
+font_color = Color(0.921569, 0.494118, 0.239216, 1)
+
+[node name="Table" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_2kmuo")
+
+[node name="StartGameFon" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("2_0md2k")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 663.0
+offset_top = 40.0
+offset_right = 1252.0
+offset_bottom = 112.0
+text = "таблица лидеров"
+label_settings = SubResource("LabelSettings_q482l")
+horizontal_alignment = 1
+
+[node name="ItemList" type="ItemList" parent="."]
+layout_mode = 0
+offset_left = 466.0
+offset_top = 192.0
+offset_right = 1406.0
+offset_bottom = 978.0

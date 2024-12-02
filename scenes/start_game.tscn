@@ -82,13 +82,5 @@ text = "ПЕРЕПРАВА"
 label_settings = SubResource("LabelSettings_5qkbc")
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 86.0
-offset_top = 161.0
-offset_right = 477.0
-offset_bottom = 426.0
-
 [connection signal="pressed" from="MenuButton2" to="." method="_on_menu_button_2_pressed"]
 [connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
