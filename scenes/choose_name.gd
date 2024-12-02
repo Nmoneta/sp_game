@@ -14,6 +14,7 @@ func _on_text_submitted(new_text):
 		print("Имя добавлено в глобальный массив:", player_name)
 	else:
 		print("Имя игрока не может быть пустым!")
+	get_tree().change_scene_to_file("res://scenes/game.tscn")
 		
 func _process(delta: float) -> void:
 	pass
