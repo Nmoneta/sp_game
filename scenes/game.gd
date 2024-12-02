@@ -60,7 +60,7 @@ func _on_boat_clicked():
 func check_rules():
 	var left_side = [] # Персонажи на левом берегу
 	var right_side = [] # Персонажи на правом берегу
-	var count_in_island = 6
+	var count_in_island = 0
 	# Разделите персонажей по берегам
 	for character in characters:
 		if character.is_left:
@@ -68,6 +68,7 @@ func check_rules():
 		else:
 			right_side.append(character)
 	var i = 0
+	print(count_in_island)
 	# Проверьте, что девочки не остались с чужими отцами
 	for girl in [$Girl1, $Girl2, $Girl3]:
 		if girl.boat_pos == 2:
@@ -78,6 +79,8 @@ func check_rules():
 				Global.game_over()
 				lose()
 			if !girl.is_left and characters[i].is_left and (!characters[arr[0]].is_left or !characters[arr[1]].is_left):
+				
+				print(girl)
 				print("Нарушение правил на правом берегу!")
 				Global.game_over()
 				lose()

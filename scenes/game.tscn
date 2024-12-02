@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://1ksdrvtpnpbe"]
+[gd_scene load_steps=17 format=3 uid="uid://1ksdrvtpnpbe"]
 
 [ext_resource type="Texture2D" uid="uid://dec6v8r38cvgx" path="res://graphic/fon-transformed.png" id="1_h8u0d"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_hmycs"]
@@ -13,12 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://d1k7wiakbss6f" path="res://graphic/3671828_pause_solid_icon.png" id="11_ms517"]
 [ext_resource type="PackedScene" uid="uid://cm8f03oa6raet" path="res://scenes/lose.tscn" id="12_nyk6h"]
 [ext_resource type="PackedScene" uid="uid://csbkka1gdnyrs" path="res://scenes/win.tscn" id="13_k8g25"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0wo1"]
-size = Vector2(961, 119)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vu7wm"]
-size = Vector2(1098.25, 184.532)
+[ext_resource type="AudioStream" uid="uid://bq2uirjhr7a58" path="res://audio/scream.mp3" id="14_set4y"]
+[ext_resource type="AudioStream" uid="uid://b00odkbfnp1qq" path="res://audio/win.wav" id="15_ddxsl"]
+[ext_resource type="AudioStream" uid="uid://br263bb18n1xd" path="res://audio/548430__indian_gamer2005__piano-crash-sound.mp3" id="16_sri8f"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_hmycs")
@@ -26,21 +23,6 @@ script = ExtResource("1_hmycs")
 [node name="Fon-transformed" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
 texture = ExtResource("1_h8u0d")
-
-[node name="RightIsland" type="StaticBody2D" parent="."]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RightIsland"]
-position = Vector2(1418, 609)
-shape = SubResource("RectangleShape2D_e0wo1")
-
-[node name="LeftIsland" type="StaticBody2D" parent="."]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftIsland"]
-position = Vector2(1138.16, 1050.92)
-rotation = 0.191986
-shape = SubResource("RectangleShape2D_vu7wm")
 
 [node name="Plot" parent="." instance=ExtResource("8_gqg87")]
 position = Vector2(1123, 871)
@@ -80,5 +62,17 @@ texture_normal = ExtResource("11_ms517")
 [node name="Lose" parent="." instance=ExtResource("12_nyk6h")]
 
 [node name="Win" parent="." instance=ExtResource("13_k8g25")]
+
+[node name="Scream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_set4y")
+
+[node name="Win2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_ddxsl")
+
+[node name="Lose2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_sri8f")
+
+[node name="River" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_sri8f")
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
