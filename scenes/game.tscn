@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://1ksdrvtpnpbe"]
+[gd_scene load_steps=16 format=3 uid="uid://1ksdrvtpnpbe"]
 
 [ext_resource type="Texture2D" uid="uid://dec6v8r38cvgx" path="res://graphic/fon-transformed.png" id="1_h8u0d"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_hmycs"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://dtwsqcnjf6hmw" path="res://scenes/plot.tscn" id="8_gqg87"]
 [ext_resource type="PackedScene" uid="uid://dvkphlkhknlhx" path="res://scenes/pause_menu.tscn" id="10_jmies"]
 [ext_resource type="Texture2D" uid="uid://d1k7wiakbss6f" path="res://graphic/3671828_pause_solid_icon.png" id="11_ms517"]
+[ext_resource type="PackedScene" uid="uid://cm8f03oa6raet" path="res://scenes/lose.tscn" id="12_nyk6h"]
+[ext_resource type="PackedScene" uid="uid://csbkka1gdnyrs" path="res://scenes/win.tscn" id="13_k8g25"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e0wo1"]
 size = Vector2(961, 119)
@@ -74,5 +76,9 @@ offset_top = 7.0
 offset_right = 1918.0
 offset_bottom = 135.0
 texture_normal = ExtResource("11_ms517")
+
+[node name="Lose" parent="." instance=ExtResource("12_nyk6h")]
+
+[node name="Win" parent="." instance=ExtResource("13_k8g25")]
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

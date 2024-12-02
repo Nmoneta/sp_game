@@ -14,7 +14,13 @@ var is_free_pos2 = true
 
 func _ready():
 	$Area2D.connect("input_event", Callable(self, "_on_area_input_event"))
-
+	
+func restart():
+	is_free_pos1 = true
+	is_free_pos2 = true
+	is_on_left_shore = true
+	self.position = Vector2(1123,871)
+	passengers = []
 # Перемещение лодки
 func move_boat():
 	if len(passengers) == 0:
@@ -66,7 +72,7 @@ func board_passenger(person):
 	
 	person.scale = Vector2(1, 1)
 	passengers.append(person)
-	emit_signal("check")
+	#emit_signal("check")
 	
 
 # Высадка из лодки

@@ -36,6 +36,7 @@ label_settings = SubResource("LabelSettings_nvbht")
 horizontal_alignment = 1
 
 [node name="MenuButton2" type="MenuButton" parent="."]
+layout_mode = 0
 offset_left = 752.0
 offset_top = 642.0
 offset_right = 1163.0

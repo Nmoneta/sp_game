@@ -11,9 +11,16 @@ func _process(delta: float) -> void:
 		pauseMenu()
 
 func restart():
-	Global.move()
+	$Lose.hide()
+	$Win.hide()
+	Global.motion = 0
+	Engine.time_scale = 1
 	Global.start_game()
+	boat.restart()
 	for character in characters:
+		character.scale = Vector2(1, 1)
+		character.boat_pos = 2
+		character.is_left = true
 		character.position = character.left_pos
 		
 func pauseMenu():
@@ -30,7 +37,11 @@ func _ready():
 	pause_menu.hide()
 	boat.connect("clicked", Callable(self, "_on_boat_clicked"))
 	boat.connect("check", Callable(self, "check_rules"))
+	$Lose.connect("restart", Callable(self, "restart"))
+	$Win.connect("restart", Callable(self, "restart"))
 	Global.start_game()
+	$Lose.hide()
+	$Win.hide()
 	for character in characters:
 		character.connect("clicked", Callable(self, "_on_character_clicked"))
 
@@ -49,7 +60,7 @@ func _on_boat_clicked():
 func check_rules():
 	var left_side = [] # Персонажи на левом берегу
 	var right_side = [] # Персонажи на правом берегу
-	var count_in_island = 6
+	var count_in_island = 0
 	# Разделите персонажей по берегам
 	for character in characters:
 		if character.is_left:
@@ -59,23 +70,33 @@ func check_rules():
 	var i = 0
 	# Проверьте, что девочки не остались с чужими отцами
 	for girl in [$Girl1, $Girl2, $Girl3]:
-		var arr = [0, 1, 2]
-		arr.erase(i)
-		if girl.is_left and !characters[i].is_left and (characters[arr[0]].is_left or characters[arr[1]].is_left):
-			print("Нарушение правил на левом берегу!")
-			Global.game_over()
-			get_tree().change_scene_to_file("res://scenes/lose.tscn")#########################
-		if !girl.is_left and characters[i].is_left and (!characters[arr[0]].is_left or !characters[arr[1]].is_left):
-			print("Нарушение правил на правом берегу!")
-			Global.game_over()
-			get_tree().change_scene_to_file("res://scenes/lose.tscn") ######################
+		if girl.boat_pos == 2:
+			var arr = [0, 1, 2]
+			arr.erase(i)
+			if girl.is_left and !characters[i].is_left and (characters[arr[0]].is_left or characters[arr[1]].is_left):
+				print("Нарушение правил на левом берегу!")
+				Global.game_over()
+				lose()
+			if !girl.is_left and characters[i].is_left and (!characters[arr[0]].is_left or !characters[arr[1]].is_left):
+				print("Нарушение правил на правом берегу!")
+				Global.game_over()
+				lose()
 		i+=1
 	for character in characters:
 		if !character.is_left:
 			count_in_island += 1
 	if count_in_island == 6:
 		print('Это победа братан')
-		get_tree().change_scene_to_file("res://scenes/win.tscn")###########################3
+		Global.game_over()
+		win()
 
 func _on_texture_button_pressed() -> void:
 	pauseMenu() # Replace with function body.
+	
+func win():	
+		$Win.show()
+		Engine.time_scale = 0
+
+func lose():
+		$Lose.show()
+		Engine.time_scale = 0

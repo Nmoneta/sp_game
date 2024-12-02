@@ -17,7 +17,7 @@ func game_over():
 	# Сохраняем текущее время в миллисекундах (время окончания игры)
 	end_time = Time.get_ticks_msec()
 	# Вычисляем разницу между временем окончания и началом
-	elapsed_time = (end_time - start_time)/100
+	elapsed_time = (end_time - start_time)/1000
 	# Выводим прошедшее время (в миллисекундах)
 	print("Время игры: " + str(elapsed_time) + " секунд")
 
