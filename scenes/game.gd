@@ -6,6 +6,7 @@ extends Node2D
 func _ready():
 	boat.connect("clicked", Callable(self, "_on_boat_clicked"))
 	boat.connect("check", Callable(self, "check_rules"))
+	Global.start_game()
 	for character in characters:
 		character.connect("clicked", Callable(self, "_on_character_clicked"))
 
@@ -15,13 +16,11 @@ func _on_character_clicked(character):
 		boat.disembark_passenger(character)
 	else:
 		boat.board_passenger(character)
-	print(Global.move)
 	
 
 func _on_boat_clicked():
 	Global.move += 1
 	boat.move_boat()
-	print(Global.move)
 
 func check_rules():
 	var left_side = [] # Персонажи на левом берегу
@@ -39,6 +38,8 @@ func check_rules():
 		arr.erase(i)
 		if girl.is_left and !characters[i].is_left and (characters[arr[0]].is_left or characters[arr[1]].is_left):
 			print("Нарушение правил на левом берегу!")
+			Global.game_over()
 		if !girl.is_left and characters[i].is_left and (!characters[arr[0]].is_left or !characters[arr[1]].is_left):
 			print("Нарушение правил на правом берегу!")
+			Global.game_over()
 		i+=1
