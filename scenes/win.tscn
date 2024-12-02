@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://csbkka1gdnyrs"]
+
+[ext_resource type="Script" path="res://scenes/win.gd" id="1_2vric"]
+[ext_resource type="Texture2D" uid="uid://ceyadbvgfxrpe" path="res://graphic/start_game_fon.png" id="2_b2tvx"]
+[ext_resource type="FontFile" uid="uid://baxo7c5b2tsem" path="res://graphic/FEMussyPussy-Regular.otf" id="3_olxk2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5876j"]
+font = ExtResource("3_olxk2")
+font_size = 140
+font_color = Color(0.952941, 0, 0.235294, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_h5qov"]
+font = ExtResource("3_olxk2")
+font_size = 50
+
+[node name="Win" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2vric")
+
+[node name="StartGameFon" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("2_b2tvx")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 148.0
+offset_right = 1417.0
+offset_bottom = 355.0
+text = "победа!"
+label_settings = SubResource("LabelSettings_5876j")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 647.0
+offset_top = 533.0
+offset_right = 1301.0
+offset_bottom = 708.0
+label_settings = SubResource("LabelSettings_h5qov")

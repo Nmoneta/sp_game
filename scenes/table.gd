@@ -1,7 +1,5 @@
 extends Control
 
-
-
 @onready var item_list = $ItemList  # Укажите путь к вашему ItemList
 
 func _ready():

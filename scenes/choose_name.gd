@@ -9,7 +9,7 @@ func _ready() -> void:
 func _on_text_submitted(new_text):
 	var player_name = new_text.strip_edges()
 	if player_name != "":
-		Global.player_names.append(player_name)
+		Global.add_player(player_name, Global.motion, Global.elapsed_time)
 		line_edit.clear()  # Очистить поле ввода
 		print("Имя добавлено в глобальный массив:", player_name)
 		get_tree().change_scene_to_file("res://scenes/game.tscn")

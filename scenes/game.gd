@@ -49,7 +49,7 @@ func _on_boat_clicked():
 func check_rules():
 	var left_side = [] # Персонажи на левом берегу
 	var right_side = [] # Персонажи на правом берегу
-	var count_in_island = 0
+	var count_in_island = 6
 	# Разделите персонажей по берегам
 	for character in characters:
 		if character.is_left:
@@ -64,15 +64,18 @@ func check_rules():
 		if girl.is_left and !characters[i].is_left and (characters[arr[0]].is_left or characters[arr[1]].is_left):
 			print("Нарушение правил на левом берегу!")
 			Global.game_over()
+			get_tree().change_scene_to_file("res://scenes/lose.tscn")#########################
 		if !girl.is_left and characters[i].is_left and (!characters[arr[0]].is_left or !characters[arr[1]].is_left):
 			print("Нарушение правил на правом берегу!")
 			Global.game_over()
+			get_tree().change_scene_to_file("res://scenes/lose.tscn") ######################
 		i+=1
 	for character in characters:
 		if !character.is_left:
 			count_in_island += 1
 	if count_in_island == 6:
 		print('Это победа братан')
+		get_tree().change_scene_to_file("res://scenes/win.tscn")###########################3
 
 func _on_texture_button_pressed() -> void:
 	pauseMenu() # Replace with function body.

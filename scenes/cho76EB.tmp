@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://dup3hbkhpw3m6"]
+
+[ext_resource type="Script" path="res://scenes/choose_name.gd" id="1_1huvh"]
+[ext_resource type="Texture2D" uid="uid://ceyadbvgfxrpe" path="res://graphic/start_game_fon.png" id="2_nwsu0"]
+[ext_resource type="FontFile" uid="uid://baxo7c5b2tsem" path="res://graphic/FEMussyPussy-Regular.otf" id="3_xvhaa"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4di7i"]
+font = ExtResource("3_xvhaa")
+font_size = 55
+font_color = Color(0.921569, 0.494118, 0.239216, 1)
+
+[node name="ChooseName" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_1huvh")
+
+[node name="StartGameFon" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("2_nwsu0")
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 595.0
+offset_top = 317.0
+offset_right = 1330.0
+offset_bottom = 403.0
+theme_override_fonts/font = ExtResource("3_xvhaa")
+theme_override_font_sizes/font_size = 50
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 595.0
+offset_top = 226.0
+offset_right = 1184.0
+offset_bottom = 296.0
+text = "Введите имя:"
+label_settings = SubResource("LabelSettings_4di7i")
