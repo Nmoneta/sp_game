@@ -15,8 +15,10 @@ func populate_item_list():
 	item_list.clear()
 
 	# Добавляем имена игроков из Global.player_names
-	for player in Global.player_names:
+	for i in range(Global.player_names.size() - 1, -1, -1):
+		var player = Global.player_names[i]
 		var entry = "Имя: %s | Счёт: %d | Время: %.2f сек" % [player["name"], player["motion"], player["time"]]
+		print(entry)
 		item_list.add_item(entry)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
