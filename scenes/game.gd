@@ -10,13 +10,18 @@ func _ready():
 		character.connect("clicked", Callable(self, "_on_character_clicked"))
 
 func _on_character_clicked(character):
+	Global.move += 1
 	if boat.passengers.has(character):
 		boat.disembark_passenger(character)
 	else:
 		boat.board_passenger(character)
+	print(Global.move)
+	
 
 func _on_boat_clicked():
+	Global.move += 1
 	boat.move_boat()
+	print(Global.move)
 
 func check_rules():
 	var left_side = [] # Персонажи на левом берегу
