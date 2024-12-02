@@ -98,8 +98,10 @@ func _on_texture_button_pressed() -> void:
 	
 func win():	
 		$Win.show()
+		$Win2.play()
 		Engine.time_scale = 0
 
 func lose():
+		$Scream.play()
 		$Lose.show()
 		Engine.time_scale = 0

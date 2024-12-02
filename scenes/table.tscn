@@ -42,6 +42,7 @@ allow_search = false
 item_count = 1
 
 [node name="MenuButton" type="MenuButton" parent="."]
+layout_mode = 0
 offset_left = 653.0
 offset_top = 907.0
 offset_right = 1217.0
