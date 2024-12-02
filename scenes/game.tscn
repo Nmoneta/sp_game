@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://1ksdrvtpnpbe"]
+[gd_scene load_steps=18 format=3 uid="uid://1ksdrvtpnpbe"]
 
 [ext_resource type="Texture2D" uid="uid://dec6v8r38cvgx" path="res://graphic/fon-transformed.png" id="1_h8u0d"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_hmycs"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://bq2uirjhr7a58" path="res://audio/scream.mp3" id="14_set4y"]
 [ext_resource type="AudioStream" uid="uid://b00odkbfnp1qq" path="res://audio/win.wav" id="15_ddxsl"]
 [ext_resource type="AudioStream" uid="uid://br263bb18n1xd" path="res://audio/548430__indian_gamer2005__piano-crash-sound.mp3" id="16_sri8f"]
+[ext_resource type="AudioStream" uid="uid://flfv0kjc413k" path="res://audio/river.mp3" id="17_gx4sg"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_hmycs")
@@ -73,6 +74,6 @@ stream = ExtResource("15_ddxsl")
 stream = ExtResource("16_sri8f")
 
 [node name="River" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("16_sri8f")
+stream = ExtResource("17_gx4sg")
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

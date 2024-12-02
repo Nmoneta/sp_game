@@ -29,7 +29,7 @@ func move_boat():
 	var vect = 1
 	if not is_on_left_shore:
 		vect = -1
-
+	$"../River".play()
 	is_on_left_shore = not is_on_left_shore
 	var target_position = right_shore_position if not is_on_left_shore else left_shore_position
 	var tween = get_tree().create_tween()
