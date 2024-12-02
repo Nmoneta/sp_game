@@ -49,6 +49,7 @@ func _on_boat_clicked():
 func check_rules():
 	var left_side = [] # Персонажи на левом берегу
 	var right_side = [] # Персонажи на правом берегу
+	var count_in_island = 0
 	# Разделите персонажей по берегам
 	for character in characters:
 		if character.is_left:
@@ -67,3 +68,11 @@ func check_rules():
 			print("Нарушение правил на правом берегу!")
 			Global.game_over()
 		i+=1
+	for character in characters:
+		if !character.is_left:
+			count_in_island += 1
+	if count_in_island == 6:
+		print('Это победа братан')
+
+func _on_texture_button_pressed() -> void:
+	pauseMenu() # Replace with function body.

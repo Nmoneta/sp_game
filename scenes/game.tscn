@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://1ksdrvtpnpbe"]
+[gd_scene load_steps=14 format=3 uid="uid://1ksdrvtpnpbe"]
 
 [ext_resource type="Texture2D" uid="uid://dec6v8r38cvgx" path="res://graphic/fon-transformed.png" id="1_h8u0d"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_hmycs"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ck15at3dwdlwo" path="res://scenes/man3.tscn" id="7_tj7ek"]
 [ext_resource type="PackedScene" uid="uid://dtwsqcnjf6hmw" path="res://scenes/plot.tscn" id="8_gqg87"]
 [ext_resource type="PackedScene" uid="uid://dvkphlkhknlhx" path="res://scenes/pause_menu.tscn" id="10_jmies"]
+[ext_resource type="Texture2D" uid="uid://d1k7wiakbss6f" path="res://graphic/3671828_pause_solid_icon.png" id="11_ms517"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e0wo1"]
 size = Vector2(961, 119)
@@ -66,3 +67,12 @@ offset_top = 336.0
 offset_right = 712.0
 offset_bottom = 336.0
 scale = Vector2(4, 4)
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 1790.0
+offset_top = 7.0
+offset_right = 1918.0
+offset_bottom = 135.0
+texture_normal = ExtResource("11_ms517")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
