@@ -60,7 +60,7 @@ func _on_boat_clicked():
 func check_rules():
 	var left_side = [] # Персонажи на левом берегу
 	var right_side = [] # Персонажи на правом берегу
-	var count_in_island = 6
+	var count_in_island = 0
 	# Разделите персонажей по берегам
 	for character in characters:
 		if character.is_left:
